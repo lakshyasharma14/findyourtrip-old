@@ -1,39 +1,29 @@
-# Airbnb-ish 👋
+# Next.js + Tailwind CSS Example
 
-<p>
-  <img alt="Version" src="https://img.shields.io/badge/version-0.1.0-blue.svg?cacheSeconds=2592000" />
-  <a href="#" target="_blank">
-    <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" />
-  </a>
-</p>
+This example shows how to use [Tailwind CSS](https://tailwindcss.com/) [(v2.2)](https://blog.tailwindcss.com/tailwindcss-2-2) with Next.js. It follows the steps outlined in the official [Tailwind docs](https://tailwindcss.com/docs/guides/nextjs).
 
-> Airbnb UI clone using Next.js + styled-components. (Todo: Search functionality and Mapbox integration)
+It uses the new [`Just-in-Time Mode`](https://tailwindcss.com/docs/just-in-time-mode) for Tailwind CSS.
 
-### ✨ [Live Demo](https://airbnb-ish.vercel.app)
+## Preview
 
-## Author
+Preview the example live on [StackBlitz](http://stackblitz.com/):
 
-👤 **Dash Santosh**
+[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/vercel/next.js/tree/canary/examples/with-tailwindcss)
 
-- Website: https://dashsantosh.me
-- Github: [@santdas36](https://github.com/santdas36)
+## Deploy your own
 
-## Show your support
+Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example):
 
-Give a ⭐️ if this project helped you!
-<p>
-  <a href="https://www.buymeacoffee.com/santdas36"> <img align="left" src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" height="50" width="210" alt="buymeacoffee.com/santdas36" /></a>
-</p>
-<br /><br />
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-tailwindcss&project-name=with-tailwindcss&repository-name=with-tailwindcss)
 
-## Getting Started
+## How to use
 
-First, run the development server:
+Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init) or [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) to bootstrap the example:
 
 ```bash
-npm run dev
+npx create-next-app --example with-tailwindcss with-tailwindcss-app
 # or
-yarn dev
+yarn create next-app --example with-tailwindcss with-tailwindcss-app
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
