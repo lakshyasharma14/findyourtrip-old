@@ -1,32 +1,38 @@
-FindYourTrip: Find the trip you deserve
+# FindYourTrip- Find the trip you deserve
+
 A Collection of all the trip organisers in India. Inspect, compare and choose the best one for you.
 
-Live Version here findyourtrip.in
+Live Version here [findyourtrip.in](https://findyourtrip.in)
 
-Local Setup
+## Local Setup
+
 In the project directory, you can run:
 
-npm run dev
-Runs the app in the development mode.
-Open http://localhost:3000 to view it in the browser.
+### `npm run dev`
 
-The page will reload if you make edits.
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+
+The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
-npm run test
-Launches the test runner in the interactive watch mode.
-See the section about running tests for more information.
+### `npm run test`
 
-npm run build
-Builds the app for production to the build folder.
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+
+### `npm run build`
+
+Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.
+The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
-See the section about deployment for more information.
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-Learn More
-You can learn more in the Create React App documentation.
+## Learn More
 
-To learn React, check out the React documentation.
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
