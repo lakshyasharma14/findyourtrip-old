@@ -1,38 +1,30 @@
 import styled from "styled-components";
 import { useRouter } from "next/router";
 import { format } from "date-fns";
-import Image from "next/image";
 import ResultCard from "./ResultCard";
 import { resultImages } from "../data";
 import { ArrowLeft, ArrowRight } from "react-feather";
 
-export default function SearchResults({
-  results,
-  setViewport,
-  setSelectedLocation,
-}) {
+export default function SearchResults({ results, setSelectedLocation }) {
   const router = useRouter();
-  const checkInDate = format(new Date(router.query.checkIn), "do MMM, yyyy");
-  const checkOutDate = format(new Date(router.query.checkOut), "do MMM, yyyy");
-
   const setSelection = (data) => {
     setSelectedLocation(data);
-    setViewport({ latitude: data.lat - 0.01, longitude: data.long, zoom: 11 });
-    console.log(data);
     window.scrollTo({
       top: 0,
       behavior: "smooth",
     });
   };
+  const checkInDate = router.query.checkIn
+    ? format(new Date(router.query.checkIn), "do MMM, yyyy")
+    : null;
+  const checkOutDate = router.query.checkOut
+    ? format(new Date(router.query.checkOut), "do MMM, yyyy")
+    : null;
 
   return (
     <ResultsDiv className="hero">
       <div className="inner">
-        <p className="details">
-          300+ stays - <span className="date">{checkInDate}</span> to{" "}
-          <span className="date">{checkOutDate}</span> for {router.query.guests}{" "}
-          guests
-        </p>
+        <p className="details">details</p>
         <h1>Stays in {router.query.location}</h1>
 
         <div className="results">
@@ -42,6 +34,7 @@ export default function SearchResults({
                 setSelection({ lat: item.lat, long: item.long, index: index })
               }
               {...item}
+              trip={item}
               imgSrc={resultImages[index]}
               key={index}
             />

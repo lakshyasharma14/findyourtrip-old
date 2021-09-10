@@ -6,7 +6,7 @@ export default function Hero() {
     <HeroSection className="light hero">
       <div className="heroInner">
         <span>
-          <h1>Olympian & Paralympian Online Experiences</h1>
+          <h1>Find The Trip You Deserve</h1>
           <a href="#" className="btn btn-light">
             Explore Now
           </a>
@@ -40,6 +40,7 @@ const HeroSection = styled.section`
     font-size: clamp(2rem, 5.5vw, 3.25rem);
     line-height: 1.2;
     margin-bottom: 1.5rem;
+    text-shadow: 0 0 3px var(--brown), 0 0 5px var(--brown);
   }
 
   @media (max-width: 36rem) {

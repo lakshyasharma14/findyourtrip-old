@@ -24,8 +24,6 @@ export default function Header({ placeholder }) {
   const [location, setLocation] = useState("");
   const [checkInDate, setCheckInDate] = useState(new Date());
   const [checkOutDate, setCheckOutDate] = useState(new Date());
-  const [numberOfAdults, setNumberOfAdults] = useState(0);
-  const [numberOfChildren, setNumberOfChildren] = useState(0);
 
   const openDatePicker = () => {
     setInputFocus(true);
@@ -39,8 +37,6 @@ export default function Header({ placeholder }) {
   const closeDatePicker = () => {
     setInputFocus(false);
     setLocation("");
-    setNumberOfChildren(0);
-    setNumberOfAdults(0);
     setCheckInDate(new Date());
     setCheckOutDate(new Date());
     document.body.style.overflow = "initial";
@@ -58,7 +54,6 @@ export default function Header({ placeholder }) {
         location: location,
         checkIn: checkInDate.toISOString(),
         checkOut: checkOutDate.toISOString(),
-        guests: numberOfChildren + numberOfAdults,
       },
     });
     setTimeout(() => closeDatePicker(), 100);
@@ -66,7 +61,7 @@ export default function Header({ placeholder }) {
 
   useEffect(() => {
     const handleClick = (event) => {
-      if (!headerRef.current.contains(event.target)) {
+      if (headerRef.current && !headerRef.current.contains(event.target)) {
         closeDatePicker();
       }
     };
@@ -99,16 +94,97 @@ export default function Header({ placeholder }) {
       <div className="headerInner">
         <div className="logo" onClick={() => router.push("/")}>
           <svg
-            viewBox="0 0 256 276"
+            version="1.0"
             xmlns="http://www.w3.org/2000/svg"
-            preserveAspectRatio="xMidYMid"
+            viewBox="0 0 1200.000000 200.000000"
+            preserveAspectRatio="xMidYMid meet"
           >
-            <path
-              d="M238 223.1a41 41 0 01-46 35c-7-.8-13.8-3-21-7.1-10-5.5-19.8-14-31.4-26.8 18.2-22.3 29.2-42.7 33.4-61 1.9-8.5 2.2-16.2 1.3-23.4a44.7 44.7 0 00-7.4-18.7 46.5 46.5 0 00-38.9-19.6c-16 0-30.3 7.4-38.9 19.6a44.8 44.8 0 00-7.4 18.7 57.3 57.3 0 001.3 23.5c4.2 18.2 15.5 38.9 33.4 61.2A123.8 123.8 0 0185 251.3c-7.2 4.1-14.1 6.3-21 7.1a41 41 0 01-46-35c-.9-6.9-.3-13.8 2.4-21.5.9-2.8 2.2-5.5 3.6-8.8l6.4-13.8.2-.6c19-41 39.5-83 60.7-123.8l.8-1.7 6.7-12.7c2.2-4.4 4.6-8.5 7.7-12a28.8 28.8 0 0144.1 0c3 3.5 5.5 7.6 7.7 12 2.2 4.2 4.4 8.6 6.7 12.7l.8 1.7c21 41 41.4 83 60.4 124.1v.3c2.2 4.4 4.1 9.4 6.3 13.8 1.4 3.3 2.8 6 3.6 8.8 2.2 7.2 3 14 2 21.2zm-110-13c-14.9-18.7-24.6-36.3-27.9-51.2a44.5 44.5 0 01-.8-16.9c.6-4.4 2.2-8.2 4.4-11.5 5.3-7.5 14-12.2 24.3-12.2 10.2 0 19.3 4.4 24.3 12.2 2.2 3.3 3.8 7.1 4.4 11.5.8 5 .5 10.8-.8 16.9-3.4 14.6-13 32.2-27.9 51.3zm124.4-14.3l-4.2-10-6.3-14-.3-.2c-19-41.4-39.4-83.3-61-124.7l-.8-1.7c-2.2-4.1-4.4-8.5-6.6-13-2.7-4.9-5.5-10.1-9.9-15.1a44.5 44.5 0 00-35-17.1C114.5 0 102 6 93 16.6a95 95 0 00-10 15.1l-6.6 13-.8 1.6c-21.2 41.4-42 83.3-61 124.7l-.2.6-6.4 14c-1.4 3-2.7 6.4-4.1 10a58.6 58.6 0 0062 79.4 72.8 72.8 0 0027.6-9.4c11.3-6.3 22-15.4 34.2-28.7a144.9 144.9 0 0034.2 28.7 72.9 72.9 0 0034.8 10 58.5 58.5 0 0058.2-50.2 52.1 52.1 0 00-2.5-29.6z"
-              fill="currentColor"
-            />
+            <g
+              transform="translate(0.000000,230.000000) scale(0.100000,-0.100000)"
+              fill="#000000"
+              stroke="none"
+            >
+              <path
+                d="M3340 1250 l0 -1010 1775 0 1775 0 0 1010 0 1010 -1775 0 -1775 0 0
+-1010z m539 663 c22 -82 70 -249 105 -373 63 -222 64 -224 75 -185 6 22 53
+189 104 370 l94 330 112 3 c104 2 112 1 107 -15 -3 -10 -75 -240 -161 -511
+l-155 -493 0 -240 0 -239 -110 0 -110 0 0 233 0 232 -164 518 -163 517 112 0
+113 0 41 -147z m1075 -284 c75 -28 126 -87 157 -181 23 -70 24 -86 24 -348 0
+-262 -1 -278 -24 -348 -47 -142 -133 -202 -295 -202 -45 0 -105 7 -132 15
+-109 32 -174 128 -193 285 -14 109 -14 391 0 500 19 154 84 252 189 285 71 22
+209 19 274 -6z m1676 -102 c0 -68 -3 -126 -6 -130 -4 -3 -18 0 -33 7 -68 34
+-146 25 -195 -23 l-31 -31 -3 -395 -3 -395 -114 0 -115 0 0 540 0 540 115 0
+115 0 0 -62 0 -63 31 38 c47 58 123 97 187 97 l52 0 0 -123z m-1100 -330 c0
+-365 2 -447 14 -462 22 -31 88 -25 139 13 l42 30 3 431 2 431 115 0 115 0 0
+-540 0 -540 -114 0 -115 0 -3 51 -3 51 -40 -32 c-78 -62 -112 -75 -207 -75
+-78 0 -89 2 -113 25 -15 14 -36 43 -46 65 -17 37 -19 75 -19 518 l0 477 115 0
+115 0 0 -443z"
+                fill="currentColor"
+              />
+              <path
+                d="M4781 1461 c-13 -3 -34 -19 -45 -34 -20 -27 -21 -40 -21 -327 0 -286
+1 -300 21 -326 41 -56 129 -50 158 10 24 50 24 581 0 632 -19 40 -65 58 -113
+45z"
+                fill="currentColor"
+              />
+              <path
+                d="M550 1310 l0 -750 105 0 105 0 0 340 0 340 135 0 135 0 0 90 0 90
+-135 0 -135 0 0 230 0 230 190 0 190 0 0 90 0 90 -295 0 -295 0 0 -750z"
+                fill="currentColor"
+              />
+              <path
+                d="M2960 1795 c0 -146 -4 -265 -8 -265 -4 0 -24 16 -43 36 -52 55 -104
+78 -174 78 -163 1 -235 -106 -256 -384 -26 -325 26 -582 133 -663 90 -69 224
+-52 307 37 14 14 28 26 33 26 4 0 8 -22 8 -50 l0 -50 105 0 105 0 0 750 0 750
+-105 0 -105 0 0 -265z m-52 -350 l52 -24 0 -330 0 -330 -52 -16 c-81 -24 -144
+-20 -172 10 -39 42 -48 97 -53 326 -6 241 3 311 44 359 22 26 31 30 76 30 34
+0 70 -9 105 -25z"
+                fill="currentColor"
+              />
+              <path
+                d="M6970 1970 l0 -90 135 0 135 0 0 -660 0 -660 105 0 105 0 0 660 0
+660 135 0 135 0 0 90 0 90 -375 0 -375 0 0 -90z"
+                fill="currentColor"
+              />
+              <path
+                d="M1240 1900 l0 -110 105 0 105 0 0 110 0 110 -105 0 -105 0 0 -110z"
+                fill="currentColor"
+              />
+              <path
+                d="M8370 1900 l0 -110 105 0 105 0 0 110 0 110 -105 0 -105 0 0 -110z"
+                fill="currentColor"
+              />
+              <path
+                d="M2070 1636 c-72 -21 -92 -31 -148 -75 l-52 -41 0 60 0 60 -105 0
+-105 0 0 -540 0 -540 105 0 105 0 0 426 c0 476 -7 432 72 474 54 29 102 26
+127 -6 21 -26 21 -37 21 -460 l0 -434 105 0 106 0 -3 493 -3 494 -28 36 c-15
+20 -36 41 -47 47 -32 17 -103 20 -150 6z"
+                fill="currentColor"
+              />
+              <path
+                d="M8164 1640 c-48 -11 -99 -46 -144 -98 l-40 -47 0 73 0 72 -105 0
+-105 0 0 -540 0 -540 105 0 105 0 0 378 c0 421 0 424 69 469 40 27 113 31 166
+9 l35 -15 0 125 0 124 -27 -1 c-16 -1 -42 -4 -59 -9z"
+                fill="currentColor"
+              />
+              <path
+                d="M9149 1635 c-27 -9 -69 -35 -98 -61 l-51 -46 0 56 0 56 -105 0 -105
+0 0 -700 0 -700 105 0 105 0 0 210 c0 116 3 210 6 210 3 0 26 -18 52 -40 108
+-96 261 -84 334 27 72 110 92 231 85 520 -5 244 -22 328 -79 398 -58 69 -160
+98 -249 70z m60 -171 c44 -37 59 -102 67 -289 10 -255 -15 -405 -72 -435 -28
+-16 -116 -9 -166 13 l-38 16 0 330 0 330 29 20 c68 49 134 54 180 15z"
+                fill="currentColor"
+              />
+              <path
+                d="M1240 1100 l0 -540 105 0 105 0 0 540 0 540 -105 0 -105 0 0 -540z"
+                fill="currentColor"
+              />
+              <path
+                d="M8370 1100 l0 -540 105 0 105 0 0 540 0 540 -105 0 -105 0 0 -540z"
+                fill="currentColor"
+              />
+            </g>
           </svg>
-          <span>findyourtrip</span>
         </div>
         <nav ref={navRef}>
           <a href="#" className="active">
@@ -151,30 +227,11 @@ export default function Header({ placeholder }) {
                 <label>Check-out</label>
                 <input disabled placeholder="Add dates" value={checkOutDate} />
               </div>
-
-              <div className="field">
-                <label>Guests</label>
-                <span className="guestNumber">
-                  {numberOfChildren || numberOfAdults ? (
-                    <p>{numberOfAdults + numberOfChildren} guests</p>
-                  ) : (
-                    <p className="empty">Add guests</p>
-                  )}
-                </span>
-              </div>
             </div>
           )}
           <button
             type="submit"
-            disabled={
-              inputFocus &&
-              !(
-                location &&
-                checkInDate &&
-                checkOutDate &&
-                (numberOfAdults || numberOfChildren)
-              )
-            }
+            disabled={inputFocus && !(location && checkInDate && checkOutDate)}
             onClick={handleSubmit}
             aria-label="search places"
           >
@@ -188,14 +245,6 @@ export default function Header({ placeholder }) {
             close={closeDatePicker}
             checkInDate={{ value: checkInDate, setValue: setCheckInDate }}
             checkOutDate={{ value: checkOutDate, setValue: setCheckOutDate }}
-            numberOfAdults={{
-              value: numberOfAdults,
-              setValue: setNumberOfAdults,
-            }}
-            numberOfChildren={{
-              value: numberOfChildren,
-              setValue: setNumberOfChildren,
-            }}
           />
         )}
 

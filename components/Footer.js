@@ -56,9 +56,7 @@ export default function Footer() {
           </ul>
         </span>
         <span className="footer-bottom">
-          <p>
-            <ThemeToggle text />
-          </p>
+          <ThemeToggle text />
           <p>
             <span>
               <Globe className="globe" />

@@ -6,13 +6,7 @@ import styled from "styled-components";
 import { useMediaQuery } from "@react-hook/media-query";
 import NumberInput from "./NumberInput";
 
-export default function DatePicker({
-  close,
-  checkInDate,
-  checkOutDate,
-  numberOfAdults,
-  numberOfChildren,
-}) {
+export default function DatePicker({ close, checkInDate, checkOutDate }) {
   const [visible, setVisible] = useState(false);
 
   const isSmallScreen = useMediaQuery("(max-width: 36rem)");
@@ -44,29 +38,13 @@ export default function DatePicker({
     <Container className={visible ? "visible" : null}>
       <div className="inner">
         <h4 style={{ marginBottom: "1.5rem" }}>
-          Pick Check-in & Check-out dates
+          Pick a date range for your trip:
         </h4>
         {isSmallScreen ? (
           <DateRange {...options} />
         ) : (
           <DateRangePicker {...options} />
         )}
-
-        <div className="guests">
-          <h4>Add guests</h4>
-          <div className="inputs">
-            <NumberInput
-              name="Adults"
-              value={numberOfAdults.value}
-              setValue={numberOfAdults.setValue}
-            />
-            <NumberInput
-              name="Children"
-              value={numberOfChildren.value}
-              setValue={numberOfChildren.setValue}
-            />
-          </div>
-        </div>
 
         <button className="close button" onClick={close}>
           Close

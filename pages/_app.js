@@ -3,6 +3,7 @@ import "../styles/globals.css";
 import Head from "next/head";
 import NProgress from "nprogress";
 import Router from "next/router";
+import { TripProvider } from "../context/Context";
 
 NProgress.configure({ showSpinner: false });
 Router.events.on("routeChangeStart", () => NProgress.start());
@@ -24,8 +25,9 @@ function MyApp({ Component, pageProps }) {
         />
         <link rel="icon" href="/favicon.png" />
       </Head>
-
-      <Component {...pageProps} />
+      <TripProvider>
+        <Component {...pageProps} />
+      </TripProvider>
     </>
   );
 }

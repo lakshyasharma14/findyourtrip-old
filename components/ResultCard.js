@@ -2,17 +2,21 @@ import styled from "styled-components";
 import Image from "next/image";
 import { useState, useRef, useEffect } from "react";
 import { Star, Heart } from "react-feather";
-export default function ResultCard({
-  imgSrc,
-  location,
-  title,
-  description,
-  star,
-  total,
-  price,
-  lat,
-  onClick,
-}) {
+export default function ResultCard({ location, onClick, trip }) {
+  const {
+    plan: { name },
+    plan: { description },
+    plan: { slug },
+    images,
+    plan: { price },
+    plan: { rating },
+    plan: { duration_days },
+    plan: { duration_nights },
+    plan: { acc_type_id },
+    plan: { transport_type_id },
+  } = trip;
+
+  console.log(images);
   const [liked, setLiked] = useState(false);
   const imagesRef = useRef(null);
   const [currSlide, setCurrSlide] = useState(0);
@@ -33,13 +37,13 @@ export default function ResultCard({
   return (
     <CardDiv onClick={onClick}>
       <div ref={imagesRef} className="carousel">
-        {imgSrc.map((url, index) => (
+        {images.map((url, index) => (
           <ImageComponent key={index} url={url} location={location} />
         ))}
       </div>
-      {imgSrc?.length > 1 && (
+      {images?.length > 1 && (
         <div className="scroller">
-          {imgSrc.map((img, idx) => (
+          {images.map((img, idx) => (
             <span
               key={idx}
               className={currSlide === idx ? "active" : null}
@@ -61,24 +65,22 @@ export default function ResultCard({
 
       <div className="details">
         <div className="rating">
-          <Star className="star" /> {star}{" "}
-          <small>({String(lat).split(".")[1].substring(0, 3)})</small>
+          <Star className="star" /> {rating}
         </div>
         <p className="subtitle">{location}</p>
-        <h2>{title}</h2>
-        <p className="description">{description}</p>
+        <h2>{name}</h2>
+        <p className="description">{description[0]}</p>
         <p className="price">
           <span>
-            {price.split(" ")[0]} <small>/night</small>
+            {price} <small>/person</small>
           </span>
-          <span className="total">{total}</span>
         </p>
       </div>
     </CardDiv>
   );
 }
 
-const ImageComponent = ({ index, url, location }) => {
+const ImageComponent = ({ url, location }) => {
   const [loading, setLoading] = useState(true);
 
   return (
@@ -87,7 +89,7 @@ const ImageComponent = ({ index, url, location }) => {
         layout="fill"
         alt={location}
         objectFit="cover"
-        src={`/images/results/${url}`}
+        src={url}
         onLoadingComplete={() => setLoading(false)}
       />
     </div>
