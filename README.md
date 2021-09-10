@@ -1,29 +1,32 @@
-# Next.js + Tailwind CSS Example
+FindYourTrip: Find the trip you deserve
+A Collection of all the trip organisers in India. Inspect, compare and choose the best one for you.
 
-This example shows how to use [Tailwind CSS](https://tailwindcss.com/) [(v2.2)](https://blog.tailwindcss.com/tailwindcss-2-2) with Next.js. It follows the steps outlined in the official [Tailwind docs](https://tailwindcss.com/docs/guides/nextjs).
+Live Version here findyourtrip.in
 
-It uses the new [`Just-in-Time Mode`](https://tailwindcss.com/docs/just-in-time-mode) for Tailwind CSS.
+Local Setup
+In the project directory, you can run:
 
-## Preview
+npm run dev
+Runs the app in the development mode.
+Open http://localhost:3000 to view it in the browser.
 
-Preview the example live on [StackBlitz](http://stackblitz.com/):
+The page will reload if you make edits.
+You will also see any lint errors in the console.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/vercel/next.js/tree/canary/examples/with-tailwindcss)
+npm run test
+Launches the test runner in the interactive watch mode.
+See the section about running tests for more information.
 
-## Deploy your own
+npm run build
+Builds the app for production to the build folder.
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example):
+The build is minified and the filenames include the hashes.
+Your app is ready to be deployed!
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-tailwindcss&project-name=with-tailwindcss&repository-name=with-tailwindcss)
+See the section about deployment for more information.
 
-## How to use
+Learn More
+You can learn more in the Create React App documentation.
 
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init) or [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) to bootstrap the example:
-
-```bash
-npx create-next-app --example with-tailwindcss with-tailwindcss-app
-# or
-yarn create next-app --example with-tailwindcss with-tailwindcss-app
-```
-
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+To learn React, check out the React documentation.
