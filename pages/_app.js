@@ -23,7 +23,7 @@ function MyApp({ Component, pageProps }) {
           name="description"
           content="Find holiday rentals, cabins, beach houses, unique homes and experiences around the world – all made possible by Hosts on FindYourTrip."
         />
-        <link rel="icon" href="/favicon.png" />
+        <link rel="icon" href="/favicon.ico" />
       </Head>
       <TripProvider>
         <Component {...pageProps} />

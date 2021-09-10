@@ -16,9 +16,9 @@ export default function Home() {
       <main>
         <Hero />
         <Explore />
-        <Banner />
+        {/* <Banner /> */}
         <Cards {...live} />
-        <Cards {...discover} />
+        {/* <Cards {...discover} /> */}
         <Hosting />
       </main>
 
