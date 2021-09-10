@@ -1,6 +1,5 @@
 import styled from "styled-components";
-import Image from "next/image";
-import { Globe, DollarSign, Facebook, Twitter, Instagram } from "react-feather";
+import { Globe, Facebook, Twitter, Instagram } from "react-feather";
 import ThemeToggle from "./ThemeToggle";
 
 export default function Footer() {
@@ -14,35 +13,31 @@ export default function Footer() {
             <li>Newsroom</li>
             <li>FindYourTrip 2021</li>
             <li>Investors</li>
-            <li>FindYourTrip Plus</li>
-            <li>FindYourTrip Luxe</li>
-            <li className="lg-hidden">HotelTonight</li>
-            <li className="lg-hidden">FindYourTrip for Work</li>
-            <li className="lg-hidden">Made possible by Hosts</li>
             <li className="lg-hidden">Careers</li>
-            <li className="lg-hidden">Founders&apos; Letter</li>
+            <li className="lg-hidden">Founders</li>
           </ul>
         </span>
         <span>
           <h2>Community</h2>
           <ul>
             <li>Diversity & Belonging</li>
-            <li>Accessibility</li>
-            <li>FindYourTrip Associates</li>
-            <li>Frontline Stays</li>
-            <li>Guest Referrals</li>
-            <li>FindYourTrip.org</li>
+            <li>Our Associates</li>
+            <li>Featured Tips</li>
           </ul>
         </span>
         <span>
           <h2>Host</h2>
           <ul>
-            <li>Host your home</li>
-            <li>Host an Online Experience</li>
-            <li>Host an Experience</li>
-            <li>Responsible hosting</li>
-            <li>Resource Centre</li>
-            <li>Community Centre</li>
+            <li>
+              <a
+                href="https://docs.google.com/forms/d/e/1FAIpQLSctnJxmL8pLMqKg15ZteoiwM0nTkDCtxPuAYbbxRz8-sUgAGg/viewform?vc=0&c=0&w=1&flr=0"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                Host your tips
+              </a>
+            </li>
+            <li>Guidelines for hosts</li>
           </ul>
         </span>
         <span>
@@ -50,8 +45,6 @@ export default function Footer() {
           <ul>
             <li>Our COVID-19 Response</li>
             <li>Help Centre</li>
-            <li>Cancellation options</li>
-            <li>Neighbourhood Support</li>
             <li>Trust & Safety</li>
           </ul>
         </span>
@@ -63,21 +56,29 @@ export default function Footer() {
               English
             </span>
             <span>
-              <DollarSign className="dollar" />
-              USD
-            </span>
-            <span>
-              <Facebook />
+              <a
+                href="https://www.facebook.com/findyourtrip.in/"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                <Facebook />
+              </a>
             </span>
             <span>
               <Twitter />
             </span>
             <span>
-              <Instagram />
+              <a
+                href="https://www.instagram.com/findyourtrip.in/"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                <Instagram />
+              </a>
             </span>
           </p>
           <p>
-            &copy; 2021{" "}
+            &copy; 2021
             <a href="https://findyourtrip.in" target="_blank" rel="noreferrer">
               FindYourTrip.in
             </a>
@@ -92,7 +93,6 @@ const FooterSection = styled.footer`
   padding: 3rem var(--sidePadding);
   background: var(--gray);
   border-top: 1px solid #0002;
-
   h2 {
     font-size: 1rem;
     text-transform: uppercase;
@@ -125,14 +125,12 @@ const FooterSection = styled.footer`
         opacity: 0.8;
         transition: all 0.2s;
         width: fit-content;
-
         &:hover {
           opacity: 1;
           text-decoration: underline;
         }
       }
     }
-
     .footer-bottom {
       display: flex;
       flex-direction: row-reverse;
@@ -164,7 +162,6 @@ const FooterSection = styled.footer`
       }
     }
   }
-
   @media (max-width: 36rem) {
     .footerInner .footer-bottom {
       flex-direction: column;
@@ -172,7 +169,6 @@ const FooterSection = styled.footer`
       gap: 1.5rem;
     }
   }
-
   @media (min-width: 81rem) {
     .footerInner {
       display: flex;
@@ -180,7 +176,6 @@ const FooterSection = styled.footer`
       max-width: 1200px;
       margin: 0 auto;
       justify-content: space-between;
-
       .footer-bottom {
         flex: 0 0 100%;
         padding-top: 1.5rem;
