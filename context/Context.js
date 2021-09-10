@@ -3,8 +3,13 @@ import { useState } from "react";
 import { trip_data } from "../data";
 import { useEffect } from "react";
 const TripContext = React.createContext();
+import useSWR from "swr";
+
+const fetcher = (url) => fetch(url).then((res) => res.json());
 
 const TripProvider = ({ children }) => {
+  const { data: fetchedData, error } = useSWR("/api/org", fetcher);
+
   const [tripData, setTripData] = useState({
     trips: [],
     featuredTrips: [],
@@ -13,13 +18,16 @@ const TripProvider = ({ children }) => {
 
   useEffect(() => {
     let trips = formatData(trip_data);
+    if (fetchedData) {
+      console.log(data);
+    }
     let featuredTrips = trips.filter((trip) => trip.plan.featured === true);
     setTripData({
       trips,
       featuredTrips,
       loading: false,
     });
-  }, []);
+  }, [fetchedData]);
 
   const getTrip = (slug) => {
     let tempTrips = [...tripData.trips];

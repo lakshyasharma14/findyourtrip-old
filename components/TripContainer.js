@@ -34,7 +34,6 @@ const TripContainer = ({ searchString }) => {
     });
   }, [trips]);
 
-  console.log(tripFilter);
   function getMaxPrice() {
     return Math.max(...trips.map((item) => item.plan.price));
   }

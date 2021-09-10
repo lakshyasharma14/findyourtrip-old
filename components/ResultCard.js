@@ -2,6 +2,7 @@ import styled from "styled-components";
 import Image from "next/image";
 import { useState, useRef, useEffect } from "react";
 import { Star, Heart } from "react-feather";
+
 export default function ResultCard({ location, onClick, trip }) {
   const {
     plan: { name },
@@ -16,7 +17,6 @@ export default function ResultCard({ location, onClick, trip }) {
     plan: { transport_type_id },
   } = trip;
 
-  console.log(images);
   const [liked, setLiked] = useState(false);
   const imagesRef = useRef(null);
   const [currSlide, setCurrSlide] = useState(0);
