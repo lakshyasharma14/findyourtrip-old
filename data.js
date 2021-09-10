@@ -206,23 +206,23 @@ export const discover = {
 };
 
 export const live = {
-  title: "Live anywhere",
+  title: "Experiences:",
   items: [
     {
-      title: "Outdoor getaways",
-      img: "1.jpg",
+      title: "Weekend getaways",
+      img: "weekend_getaway.jpg",
     },
     {
-      title: "Unique stays",
-      img: "2.jpg",
+      title: "Hiking",
+      img: "hiking.jpg",
     },
     {
-      title: "Entire homes",
-      img: "3.jpg",
+      title: "Relaxing trips",
+      img: "relaxing_trip.jpg",
     },
     {
-      title: "Pets allowed",
-      img: "4.jpg",
+      title: "Road Trips",
+      img: "roadtrip.jpg",
     },
   ],
   urlPrefix: "/images/live/",
