@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { Search, Globe, Menu, User } from "react-feather";
-import Image from "next/image";
 import { useRef, useEffect, useState } from "react";
 import DatePicker from "./DatePicker";
 import ThemeToggle from "./ThemeToggle";
