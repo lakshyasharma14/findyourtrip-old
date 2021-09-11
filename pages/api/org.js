@@ -9,15 +9,22 @@ const {
   PLANETSCALE_SSL_CERT_PATH,
 } = process.env;
 
-const conn = mysql.createConnection({
-  database: PLANETSCALE_DB,
-  host: PLANETSCALE_DB_HOST,
-  password: PLANETSCALE_DB_PASSWORD,
-  // ssl: {
-  //   ca: fs.readFileSync(PLANETSCALE_SSL_CERT_PATH, { encoding: "utf8" }),
-  // },
-  user: PLANETSCALE_DB_USERNAME,
-});
+const getConfig = () => {
+  let config = {
+    database: PLANETSCALE_DB,
+    host: PLANETSCALE_DB_HOST,
+    password: PLANETSCALE_DB_PASSWORD,
+    user: PLANETSCALE_DB_USERNAME,
+  };
+  if (PLANETSCALE_SSL_CERT_PATH) {
+    config.ssl = {
+      ca: fs.readFileSync(PLANETSCALE_SSL_CERT_PATH),
+    };
+  }
+  return config;
+};
+
+const conn = mysql.createConnection(getConfig());
 
 async function handler(req, res) {
   const {
