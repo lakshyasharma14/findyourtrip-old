@@ -1,10 +1,25 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import { PSDB } from "planetscale-node";
+import mysql from "mysql2";
+import fs from "fs";
 
-const conn = new PSDB("main");
+const {
+  PLANETSCALE_DB,
+  PLANETSCALE_DB_HOST,
+  PLANETSCALE_DB_USERNAME,
+  PLANETSCALE_DB_PASSWORD,
+  PLANETSCALE_SSL_CERT_PATH,
+} = process.env;
+
+const conn = mysql.createConnection({
+  database: PLANETSCALE_DB,
+  host: PLANETSCALE_DB_HOST,
+  password: PLANETSCALE_DB_PASSWORD,
+  // ssl: {
+  //   ca: fs.readFileSync(PLANETSCALE_SSL_CERT_PATH, { encoding: "utf8" }),
+  // },
+  user: PLANETSCALE_DB_USERNAME,
+});
 
 async function handler(req, res) {
-  // Run the middleware
   const {
     body: { email, name, password },
     method,
@@ -13,12 +28,19 @@ async function handler(req, res) {
     case "POST":
     case "GET":
       try {
-        const [rows, fields] = await conn.query("select * from trip");
+        const [getRows, _] = await conn.promise().query("select * from trip");
         res.statusCode = 200;
-        // res.json(getRows);
-        console.log(res);
+        res.json(getRows);
       } catch (e) {
-        console.log(e);
+        const error = new Error(
+          "An error occurred while connecting to the database"
+        );
+        error.status = 500;
+        error.info = {
+          message: "An error occurred while connecting to the database",
+          more: e.message,
+        };
+        throw error;
       }
 
       break;
