@@ -1,0 +1,5 @@
+
+Todo:
+  ☐ Migrate search filters
+  ☐ Update local setup to use a mysql server db
+  ☐ Change schedule in db to json

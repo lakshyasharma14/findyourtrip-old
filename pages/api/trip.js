@@ -33,6 +33,7 @@ async function handler(req, res) {
   } = req;
   switch (method) {
     case "POST":
+
     case "GET":
       try {
         const [getRows, _] = await conn.promise().query("select * from trip");
