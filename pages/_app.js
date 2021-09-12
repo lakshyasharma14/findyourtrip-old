@@ -1,9 +1,13 @@
 import "nprogress/nprogress.css";
 import "../styles/globals.css";
 import Head from "next/head";
+import Script from "next/script";
 import NProgress from "nprogress";
 import Router from "next/router";
 import { TripProvider } from "../context/Context";
+import * as gtag from "../lib/gtag";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
 
 NProgress.configure({ showSpinner: false });
 Router.events.on("routeChangeStart", () => NProgress.start());
@@ -11,6 +15,17 @@ Router.events.on("routeChangeComplete", () => NProgress.done());
 Router.events.on("routeChangeError", () => NProgress.done());
 
 function MyApp({ Component, pageProps }) {
+  const router = useRouter();
+  useEffect(() => {
+    const handleRouteChange = (url) => {
+      gtag.pageview(url);
+    };
+    router.events.on("routeChangeComplete", handleRouteChange);
+    return () => {
+      router.events.off("routeChangeComplete", handleRouteChange);
+    };
+  }, [router.events]);
+
   return (
     <>
       <Head>
