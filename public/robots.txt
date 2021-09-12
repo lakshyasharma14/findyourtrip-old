@@ -1,0 +1,6 @@
+# https://www.robotstxt.org/robotstxt.html
+Sitemap: https://findyourtrip.in/sitemap.xml
+User-agent: *
+Allow:/
+
+Host: https://findyourtrip.in
