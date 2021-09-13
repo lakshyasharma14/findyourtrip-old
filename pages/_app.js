@@ -1,13 +1,14 @@
 import "nprogress/nprogress.css";
 import "../styles/globals.css";
 import Head from "next/head";
-import Script from "next/script";
 import NProgress from "nprogress";
 import Router from "next/router";
 import { TripProvider } from "../context/Context";
 import * as gtag from "../lib/gtag";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
+import { DefaultSeo } from "next-seo";
+import SEO from "../config/seo.json";
 
 NProgress.configure({ showSpinner: false });
 Router.events.on("routeChangeStart", () => NProgress.start());
@@ -41,6 +42,7 @@ function MyApp({ Component, pageProps }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <TripProvider>
+        <DefaultSeo {...SEO} />
         <Component {...pageProps} />
       </TripProvider>
     </>

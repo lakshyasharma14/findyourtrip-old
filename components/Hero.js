@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Image from "next/image";
+import Link from "next/link";
 
 export default function Hero() {
   return (
@@ -7,9 +7,9 @@ export default function Hero() {
       <div className="heroInner">
         <span>
           <h1>Find The Trip You Deserve</h1>
-          <a href="#" className="btn btn-light">
-            Explore Now
-          </a>
+          <Link href="/search">
+            <a className="btn btn-light">Explore Now</a>
+          </Link>
         </span>
       </div>
     </HeroSection>
