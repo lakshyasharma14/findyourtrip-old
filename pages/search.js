@@ -29,10 +29,7 @@ export default function Search({ searchResults }) {
     <>
       <Header placeholder={placeholder} />
       <main>
-        <main>
-          <TripContainer searchString={location} />
-        </main>
-        <Footer />
+        <TripContainer searchString={location} />
       </main>
       <Footer />
     </>
