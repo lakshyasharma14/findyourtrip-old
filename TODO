@@ -1,6 +1,18 @@
 
-Todo:
-  ☐ Migrate search filters
-  ☐ Update local setup to use a mysql server db
+Infra:
+  ☐ Update local setup to use a mysql server db -P1
   ☐ Change schedule in db to json
   ☐ Update README for local setup
+
+
+UI:
+  ☐ Organisation onboarding flow - P1
+  ☐ Individual trips page - P0
+  ☐ Search Page - Filter implementation - P0
+  ☐ Integration with DB API - P0
+  ☐ Create AboutUs - P0
+  ☐ Rest of static pages - P2
+  ☐ User Login - P2
+
+Ops:
+  ☐ Onboard trips - P0
