@@ -11,9 +11,10 @@ To connect to DB hosted via planetscale, for access to DB creating a new issue o
 * run: pscale auth login
 * run: pscale connect fyt
 * This will start a proxy server on 127.0.0.1:3306 
+
 For details [https://docs.planetscale.com/tutorials/connect-any-application](here)
 
-In the project directory, you can run:
+To start the app, you can run:
 
 ### `npm run dev`
 
