@@ -5,12 +5,10 @@ export default function Hosting() {
   return (
     <HostingSection className="light">
       <span>
-        <h2>Try hosting</h2>
-        <p>
-          Earn extra income and unlock new oppurtunities by sharing your space.
-        </p>
+        <h2>Trip Organizer</h2>
+        <p>Share your trips with the amazing FindYourTrip community.</p>
         <a href="#" className="btn btn-light">
-          Learn more
+          Register Here
         </a>
       </span>
     </HostingSection>
