@@ -35,21 +35,21 @@ async function handler(req, res) {
     case "POST":
 
     case "GET":
-      // try {
-      //   const [getRows, _] = await conn.promise().query("select * from trip");
-      //   res.statusCode = 200;
-      //   res.json(getRows);
-      // } catch (e) {
-      //   const error = new Error(
-      //     "An error occurred while connecting to the database"
-      //   );
-      //   error.status = 500;
-      //   error.info = {
-      //     message: "An error occurred while connecting to the database",
-      //     more: e.message,
-      //   };
-      //   throw error;
-      // }
+      try {
+        const [getRows, _] = await conn.promise().query("select * from trip");
+        res.statusCode = 200;
+        res.json(getRows);
+      } catch (e) {
+        const error = new Error(
+          "An error occurred while connecting to the database"
+        );
+        error.status = 500;
+        error.info = {
+          message: "An error occurred while connecting to the database",
+          more: e.message,
+        };
+        throw error;
+      }
 
       break;
     default:
