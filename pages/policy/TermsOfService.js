@@ -20,7 +20,7 @@ const TermsOfService = () => {
 
       <p>
         Permission is granted to temporarily download one copy of the materials
-        on findyourtrip's Website for personal, non-commercial transitory
+        on findyourtrip&apos;s Website for personal, non-commercial transitory
         viewing only. This is the grant of a license, not a transfer of title,
         and under this license you may not:
       </p>
@@ -32,16 +32,16 @@ const TermsOfService = () => {
           display;
         </li>
         <li>
-          attempt to reverse engineer any software contained on findyourtrip's
-          Website;
+          attempt to reverse engineer any software contained on
+          findyourtrip&apos;s Website;
         </li>
         <li>
           remove any copyright or other proprietary notations from the
           materials; or
         </li>
         <li>
-          transferring the materials to another person or "mirror" the materials
-          on any other server.
+          transferring the materials to another person or &quot;mirror&quot; the
+          materials on any other server.
         </li>
       </ul>
 
@@ -49,23 +49,18 @@ const TermsOfService = () => {
         This will let findyourtrip to terminate upon violations of any of these
         restrictions. Upon termination, your viewing right will also be
         terminated and you should destroy any downloaded materials in your
-        possession whether it is printed or electronic format. These Terms of
-        Service has been created with the help of the{" "}
-        <a href="https://www.termsofservicegenerator.net">
-          Terms Of Service Generator
-        </a>
-        .
+        possession whether it is printed or electronic format.
       </p>
 
       <h2>3. Disclaimer</h2>
 
       <p>
-        All the materials on findyourtrip’s Website are provided "as is".
-        findyourtrip makes no warranties, may it be expressed or implied,
-        therefore negates all other warranties. Furthermore, findyourtrip does
-        not make any representations concerning the accuracy or reliability of
-        the use of the materials on its Website or otherwise relating to such
-        materials or any sites linked to this Website.
+        All the materials on findyourtrip’s Website are provided &quot;as
+        is&quot;. findyourtrip makes no warranties, may it be expressed or
+        implied, therefore negates all other warranties. Furthermore,
+        findyourtrip does not make any representations concerning the accuracy
+        or reliability of the use of the materials on its Website or otherwise
+        relating to such materials or any sites linked to this Website.
       </p>
 
       <h2>4. Limitations</h2>
@@ -115,8 +110,8 @@ const TermsOfService = () => {
       <h2>9. Governing Law</h2>
 
       <p>
-        Any claim related to findyourtrip's Website shall be governed by the
-        laws of in without regards to its conflict of law provisions.
+        Any claim related to findyourtrip&apos;s Website shall be governed by
+        the laws of in without regards to its conflict of law provisions.
       </p>
     </div>
   );
