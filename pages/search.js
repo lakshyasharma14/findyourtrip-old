@@ -20,8 +20,7 @@ export default function Search({ searchResults }) {
     gtag.event({
       action: "trip_search",
       category: "trip",
-      label: "Trips searched",
-      value: placeholder,
+      label: placeholder,
     });
   }, [placeholder]);
 
