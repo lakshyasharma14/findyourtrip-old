@@ -26,13 +26,9 @@ export default function Search({ searchResults }) {
   }, [placeholder]);
 
   return (
-    <>
-      <Header placeholder={placeholder} />
-      <main>
-        <TripContainer searchString={location} />
-      </main>
-      <Footer />
-    </>
+    <main>
+      <TripContainer searchString={location} />
+    </main>
   );
 }
 

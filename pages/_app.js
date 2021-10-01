@@ -9,6 +9,9 @@ import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { DefaultSeo } from "next-seo";
 import SEO from "../config/seo.json";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+import styled from "styled-components";
 
 NProgress.configure({ showSpinner: false });
 Router.events.on("routeChangeStart", () => NProgress.start());
@@ -43,10 +46,17 @@ function MyApp({ Component, pageProps }) {
       </Head>
       <TripProvider>
         <DefaultSeo {...SEO} />
-        <Component {...pageProps} />
+        <Header />
+        <ContainerSection>
+          <Component {...pageProps} />
+        </ContainerSection>
+        <Footer />
       </TripProvider>
     </>
   );
 }
 
 export default MyApp;
+const ContainerSection = styled.div`
+  padding: 3rem var(--sidePadding);
+`;
