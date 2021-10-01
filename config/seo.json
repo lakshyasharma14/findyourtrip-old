@@ -11,7 +11,7 @@
     "site_name": "FindYourTrip",
     "images": [
       {
-        "url": "/card.png",
+        "url": "/logo-card.png",
         "width": 800,
         "height": 600,
         "alt": "FindYourTrip"
