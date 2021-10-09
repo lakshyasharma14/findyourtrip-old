@@ -1,14 +1,14 @@
 import styled from "styled-components";
-
+import Link from "next/dist/client/link";
 export default function Hosting() {
   return (
     <HostingSection className="light">
       <span>
         <h2>Trip Organizer</h2>
         <p>Share your trips with the amazing FindYourTrip community.</p>
-        <a href="#" className="btn btn-light">
-          Register Here
-        </a>
+        <Link href="/signin">
+          <a className="btn btn-light">Register Here</a>
+        </Link>
       </span>
     </HostingSection>
   );

@@ -26,7 +26,7 @@ const expandingTransition = {
   stiffness: 30,
 };
 
-export function AccountBox() {
+export function AccountBox({ providers, csrfToken }) {
   const [isExpanded, setExpanded] = useState(false);
   const [active, setActive] = useState("signin");
 
@@ -79,8 +79,12 @@ export function AccountBox() {
           )}
         </TopContainer>
         <InnerContainer>
-          {active === "signin" && <LoginForm />}
-          {active === "signup" && <SignupForm />}
+          {active === "signin" && (
+            <LoginForm providers={providers} csrfToken={csrfToken} />
+          )}
+          {active === "signup" && (
+            <SignupForm providers={providers} csrfToken={csrfToken} />
+          )}
         </InnerContainer>
       </BoxContainer>
     </AccountContext.Provider>
@@ -121,6 +125,7 @@ const BackDrop = styled(motion.div)`
   left: -70px;
   background: var(--red);
   background: linear-gradient(58deg, var(--red) 20%, var(--red) 100%);
+  z-index: 1;
 `;
 
 const HeaderContainer = styled.div`

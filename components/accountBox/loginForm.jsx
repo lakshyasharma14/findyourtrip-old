@@ -10,10 +10,12 @@ import {
 import { providers, signIn, getSession, csrfToken } from "next-auth/client";
 import { Marginer } from "../marginer";
 import { AccountContext } from "./accountContext";
+import { GitHub } from "react-feather";
+import Image from "next/image";
+import styled from "styled-components";
 
 export function LoginForm({ providers, csrfToken }) {
   const { switchToSignup } = useContext(AccountContext);
-  console.log(providers);
   return (
     <BoxContainer>
       <form method="post" action="/api/auth/signin/email">
@@ -24,12 +26,54 @@ export function LoginForm({ providers, csrfToken }) {
         </FormContainer>
         <Marginer direction="vertical" margin={10} />
         <MutedLink href="#">Forget your password?</MutedLink>
-        <Marginer direction="vertical" margin="1.6em" />
+        <SignInSection>
+          {Object.values(providers).map((provider) => {
+            if (provider.name === "Email") {
+              return;
+            }
+            if (provider.name === "GitHub") {
+              return (
+                <div
+                  key={provider.name}
+                  className="signInItem"
+                  onClick={() => signIn(provider.id)}
+                >
+                  <GitHub />
+                </div>
+              );
+            }
+            if (provider.name === "Google") {
+              return (
+                <div
+                  key={provider.name}
+                  className="signInItem"
+                  onClick={() => signIn(provider.id)}
+                >
+                  <Image
+                    src="/images/btn_google_light_normal_ios.svg"
+                    width={40}
+                    height={40}
+                    alt="Sign in with Google"
+                  />
+                </div>
+              );
+            }
+
+            return (
+              <div key={provider.name}>
+                <button variant="outline" onClick={() => signIn(provider.id)}>
+                  Sign in with {provider.name}
+                </button>
+              </div>
+            );
+          })}
+        </SignInSection>
+        <Marginer direction="vertical" margin=".5em" />
+
         <SubmitButton type="submit">Signin</SubmitButton>
       </form>
 
       <Marginer direction="vertical" margin="1em" />
-      <div>hello</div>
       <MutedLink href="#">
         Don&apos;t have an accoun?{" "}
         <BoldLink href="#" onClick={switchToSignup}>
@@ -39,22 +83,13 @@ export function LoginForm({ providers, csrfToken }) {
     </BoxContainer>
   );
 }
-
-LoginForm.getInitialProps = async (context) => {
-  const { req, res } = context;
-  const session = await getSession({ req });
-
-  if (session && res && session.accessToken) {
-    res.writeHead(302, {
-      Location: "/",
-    });
-    res.end();
-    return;
+const SignInSection = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  .signInItem {
+    cursor: pointer;
+    z-index: 0;
   }
-  console.log(providers);
-  return {
-    session: undefined,
-    providers: await providers(context),
-    csrfToken: await csrfToken(context),
-  };
-};
+`;

@@ -3,8 +3,9 @@ import styled from "styled-components";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { useRouter } from "next/router";
+import { providers, signIn, getSession, csrfToken } from "next-auth/client";
 
-function Signin() {
+function Signin({ providers, csrfToken }) {
   const router = useRouter();
   const placeholder = router.query.location;
 
@@ -13,7 +14,7 @@ function Signin() {
       <Header placeholder={placeholder} />
       <main>
         <SigninDiv>
-          <AccountBox />
+          <AccountBox providers={providers} csrfToken={csrfToken} />
         </SigninDiv>
       </main>
       <Footer />
@@ -32,3 +33,23 @@ const SigninDiv = styled.section`
   align-items: center;
   justify-content: center;
 `;
+export const getStaticProps = async (context) => {
+  const { req, res } = context;
+  const session = await getSession({ req });
+
+  if (session && res && session.accessToken) {
+    return {
+      redirect: {
+        destination: "/",
+        permanent: false,
+      },
+    };
+  }
+  return {
+    props: {
+      session: null,
+      providers: await providers(context),
+      csrfToken: await csrfToken(context),
+    },
+  };
+};
