@@ -8,6 +8,7 @@ import * as gtag from "../lib/gtag";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { DefaultSeo } from "next-seo";
+import { Provider } from "next-auth/client";
 import SEO from "../config/seo.json";
 
 NProgress.configure({ showSpinner: false });
@@ -41,10 +42,12 @@ function MyApp({ Component, pageProps }) {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <TripProvider>
-        <DefaultSeo {...SEO} />
-        <Component {...pageProps} />
-      </TripProvider>
+      <DefaultSeo {...SEO} />
+      <Provider session={pageProps.session}>
+        <TripProvider>
+          <Component {...pageProps} />
+        </TripProvider>
+      </Provider>
     </>
   );
 }
