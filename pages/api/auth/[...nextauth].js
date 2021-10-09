@@ -26,4 +26,7 @@ export default NextAuth({
     //   from: 'NextAuth.js <no-reply@example.com>'
     // }),
   ],
+  pages: {
+    signIn: "/signin",
+  },
 });
