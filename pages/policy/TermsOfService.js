@@ -1,9 +1,18 @@
-import React from "react";
+import Header from "../../components/Header";
+import Footer from "../../components/Footer";
+import { useRouter } from "next/router";
+import styled from "styled-components";
 
-const TermsOfService = () => {
+function PrivacyPolicy({ providers, csrfToken }) {
+  const router = useRouter();
+  const placeholder = router.query.location;
+
   return (
-    <div>
-      <h1>Website Terms and Conditions of Use</h1>
+    <>
+      <Header placeholder={placeholder} />
+      <main>
+        <TermsOfServiceBody>
+      <h1 className="heading1">Website Terms and Conditions of Use</h1>
 
       <h2>1. Terms</h2>
 
@@ -113,8 +122,32 @@ const TermsOfService = () => {
         Any claim related to findyourtrip&apos;s Website shall be governed by
         the laws of in without regards to its conflict of law provisions.
       </p>
-    </div>
-  );
-};
 
-export default TermsOfService;
+        </TermsOfServiceBody>
+      </main>
+      <Footer />
+    </>
+  );
+}
+
+export default PrivacyPolicy;
+
+const TermsOfServiceBody= styled.section`
+  padding: 3rem var(--sidePadding);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  h1 {
+    align-self: center;
+  }
+
+
+  p {
+    align-self: flex-start;
+    margin-bottom: 15px;
+  }
+    
+  
+`;
