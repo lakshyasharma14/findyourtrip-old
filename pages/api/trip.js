@@ -1,30 +1,4 @@
-import mysql from "mysql2";
-import fs from "fs";
-
-const {
-  PLANETSCALE_DB,
-  PLANETSCALE_DB_HOST,
-  PLANETSCALE_DB_USERNAME,
-  PLANETSCALE_DB_PASSWORD,
-  PLANETSCALE_SSL_CERT_PATH,
-} = process.env;
-
-const getConfig = () => {
-  let config = {
-    database: PLANETSCALE_DB,
-    host: PLANETSCALE_DB_HOST,
-    password: PLANETSCALE_DB_PASSWORD,
-    user: PLANETSCALE_DB_USERNAME,
-  };
-  if (PLANETSCALE_SSL_CERT_PATH) {
-    config.ssl = {
-      ca: fs.readFileSync(PLANETSCALE_SSL_CERT_PATH),
-    };
-  }
-  return config;
-};
-
-const conn = mysql.createConnection(getConfig());
+import { getTrips } from "../../framework/planetscale/api/trip";
 
 async function handler(req, res) {
   const {
@@ -36,9 +10,9 @@ async function handler(req, res) {
 
     case "GET":
       try {
-        const [getRows, _] = await conn.promise().query("select * from trip");
+        const rows = await getTrips();
         res.statusCode = 200;
-        res.json(getRows);
+        res.json(rows);
       } catch (e) {
         const error = new Error(
           "An error occurred while connecting to the database"

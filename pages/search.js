@@ -4,8 +4,9 @@ import TripContainer from "../components/TripContainer";
 import { useRouter } from "next/router";
 import * as gtag from "../lib/gtag";
 import { useEffect } from "react";
+import { getTrips } from "../framework/planetscale/api/trip";
 
-export default function Search({ searchResults }) {
+export default function Search({ trips }) {
   const router = useRouter();
   const location = router.query.location;
   const placeholder = router.query.location;
@@ -28,20 +29,19 @@ export default function Search({ searchResults }) {
     <>
       <Header placeholder={placeholder} />
       <main>
-        <TripContainer searchString={location} />
+        <TripContainer searchString={location} trips={trips} />
       </main>
       <Footer />
     </>
   );
 }
 
-// export async function getServerSideProps() {
-//   const searchResults = await fetch("https://links.papareact.com/isz").then(
-//     (data) => data.json()
-//   );
-//   return {
-//     props: {
-//       searchResults,
-//     },
-//   };
-// }
+export async function getStaticProps() {
+  const rows = await getTrips();
+  const trips = rows;
+  return {
+    props: {
+      trips,
+    },
+  };
+}
