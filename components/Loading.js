@@ -4,7 +4,12 @@ const Loading = () => {
   return (
     <div className="loading">
       <h4>loading trips for you.. </h4>
-      <Image src="/images/gif/loading-arrow.gif" alt="loading" />
+      <Image
+        src="/images/gif/loading-arrow.gif"
+        width={150}
+        height={150}
+        alt="loading"
+      />
     </div>
   );
 };

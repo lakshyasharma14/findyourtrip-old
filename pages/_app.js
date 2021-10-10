@@ -3,7 +3,6 @@ import "../styles/globals.css";
 import Head from "next/head";
 import NProgress from "nprogress";
 import Router from "next/router";
-import { TripProvider } from "../context/Context";
 import * as gtag from "../lib/gtag";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
@@ -44,9 +43,7 @@ function MyApp({ Component, pageProps }) {
       </Head>
       <DefaultSeo {...SEO} />
       <Provider session={pageProps.session}>
-        <TripProvider>
-          <Component {...pageProps} />
-        </TripProvider>
+        <Component {...pageProps} />
       </Provider>
     </>
   );
