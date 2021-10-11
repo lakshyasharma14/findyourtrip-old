@@ -5,18 +5,17 @@ import { Star, Heart } from "react-feather";
 
 export default function ResultCard({ location, onClick, trip }) {
   const {
-    plan: { name },
-    plan: { description },
-    plan: { slug },
+    trip_name,
+    trip_desc,
+    slug,
+    org_name,
     images,
-    plan: { price },
-    plan: { rating },
-    plan: { duration_days },
-    plan: { duration_nights },
-    plan: { acc_type_id },
-    plan: { transport_type_id },
+    price,
+    rating,
+    duration,
+    acc_type_id,
+    transport_type_id,
   } = trip;
-
   const [liked, setLiked] = useState(false);
   const imagesRef = useRef(null);
   const [currSlide, setCurrSlide] = useState(0);
@@ -67,9 +66,9 @@ export default function ResultCard({ location, onClick, trip }) {
         <div className="rating">
           <Star className="star" /> {rating}
         </div>
-        <p className="subtitle">{location}</p>
-        <h2>{name}</h2>
-        <p className="description">{description[0]}</p>
+        <p className="subtitle">{org_name}</p>
+        <h2>{trip_name}</h2>
+        <p className="description">{trip_desc}</p>
         <p className="price">
           <span>
             {price} <small>/person</small>
@@ -219,6 +218,7 @@ const CardDiv = styled.div`
     font-size: 1rem;
   }
   h2 {
+    text-transform: capitalize;
     font-size: 1.15rem;
     font-weight: 600;
     margin: 0.25rem 0 0.5rem;

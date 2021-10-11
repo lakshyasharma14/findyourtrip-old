@@ -25,8 +25,7 @@ export default function SearchResults({ results, setSelectedLocation }) {
     <ResultsDiv className="hero">
       <div className="inner">
         <p className="details">details</p>
-        <h1>Stays in {router.query.location}</h1>
-
+        <h1>Trips: {router.query.location}</h1>
         <div className="results">
           {results.map((item, index) => (
             <ResultCard

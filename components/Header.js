@@ -6,6 +6,7 @@ import ThemeToggle from "./ThemeToggle";
 import { useMediaQuery } from "@react-hook/media-query";
 import { useRouter } from "next/router";
 import MobileNav from "./MobileNav";
+import Link from "next/dist/client/link";
 export default function Header({ placeholder }) {
   const router = useRouter();
 
@@ -248,15 +249,17 @@ l-155 -493 0 -240 0 -239 -110 0 -110 0 0 233 0 232 -164 518 -163 517 112 0
         )}
 
         <div className="profile">
-          <a href="#">Become a host</a>
+          <Link href="/signin">Become a host</Link>
           <ThemeToggle icon />
           <a href="#" className="globe">
             <Globe />
           </a>
-          <div className="user">
-            <Menu className="menu" />
-            <User className="userIcon" />
-          </div>
+          <Link href="/signin">
+            <div className="user">
+              <Menu className="menu" />
+              <User className="userIcon" />
+            </div>
+          </Link>
         </div>
       </div>
     </HeaderSection>
@@ -357,6 +360,7 @@ const HeaderSection = styled.header`
   .logo,
   .globe,
   nav {
+    cursor: pointer;
     display: flex;
     align-items: center;
   }

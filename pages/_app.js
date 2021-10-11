@@ -3,11 +3,11 @@ import "../styles/globals.css";
 import Head from "next/head";
 import NProgress from "nprogress";
 import Router from "next/router";
-import { TripProvider } from "../context/Context";
 import * as gtag from "../lib/gtag";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { DefaultSeo } from "next-seo";
+import { Provider } from "next-auth/client";
 import SEO from "../config/seo.json";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
@@ -44,14 +44,10 @@ function MyApp({ Component, pageProps }) {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <TripProvider>
-        <DefaultSeo {...SEO} />
-        <Header />
-        <ContainerSection>
-          <Component {...pageProps} />
-        </ContainerSection>
-        <Footer />
-      </TripProvider>
+      <DefaultSeo {...SEO} />
+      <Provider session={pageProps.session}>
+        <Component {...pageProps} />
+      </Provider>
     </>
   );
 }

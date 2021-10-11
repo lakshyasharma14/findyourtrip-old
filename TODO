@@ -7,6 +7,18 @@ Infra:
 
 UI:
   ☐ Organisation onboarding flow - P1
+    ☐ Signin Page
+      ✔ UI @done(21-10-09 20:54)
+      ✔ OAuth Setup @done(21-10-09 20:54)
+      ✔ Integrate with Google Login @done(21-10-09 20:56)
+      ☐ Seperate email pass login / passwordless  login
+        ☐ SMTP setup
+        ☐ DB Pass storage setup
+      ☐ Redirections to Org Pages
+    ☐ Oarganisation Profile Page
+      ☐ Create Trip
+      ☐ View Trips
+      ☐ Add Schedule
   ☐ Individual trips page - P0
   ☐ Search Page - Filter implementation - P0
   ☐ Integration with DB API - P0
