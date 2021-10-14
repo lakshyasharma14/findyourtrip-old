@@ -1,20 +1,20 @@
 {
   "title": "Find the trip you deserve!",
   "titleTemplate": "FindYourTrip | %s",
-  "description": "A Collection of all the trips from varios trip organisers across India. Inspect, compare and choose the best trip for you. - https://findyourtrip.in",
+  "description": "A Collection of all the trips from varios trip organisers across India. Inspect, compare and choose the best trip for you. Search Compare Plan Your Trip in India - https://findyourtrip.in",
   "openGraph": {
     "title": "FindYourTrip | Find the trip you deserve!",
-    "description": "A Collection of all the trips from varios trip organisers across India. Inspect, compare and choose the best trip for you. - https://findyourtrip.in",
+    "description": "A Collection of all the trips from varios trip organisers across India. Inspect, compare and choose the best trip for you. Search Compare Plan Your Trip in India - https://findyourtrip.in",
     "type": "website",
     "locale": "en_IE",
-    "url": "https://findyourtrip.in",
+    "url": "https://www.findyourtrip.in",
     "site_name": "FindYourTrip",
     "images": [
       {
-        "url": "/logo-card.png",
+        "url": "/findyourtrip-logo-card.png.png",
         "width": 800,
         "height": 600,
-        "alt": "FindYourTrip"
+        "alt": "FindYourTrip Logo Card"
       }
     ]
   },

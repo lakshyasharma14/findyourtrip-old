@@ -36,7 +36,7 @@ export default function Search({ trips }) {
   );
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   try {
     const trips = await getTrips();
     if (!trips) {

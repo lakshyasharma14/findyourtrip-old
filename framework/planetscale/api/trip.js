@@ -1,6 +1,12 @@
 import DBPool from "../config/db";
 
 export const getTrips = async () => {
-  const [rows, fields] = await DBPool.execute("select * from trip");
-  return JSON.parse(JSON.stringify(rows));
+  try {
+    const [rows, fields] = await DBPool.execute("select * from trip");
+    return JSON.parse(JSON.stringify(rows));
+  } catch (e) {
+    return (error = new Error(
+      "An error occurred while connecting to the database"
+    ));
+  }
 };
