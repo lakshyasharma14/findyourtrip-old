@@ -3,7 +3,7 @@ import Footer from "../../components/Footer";
 import { useRouter } from "next/router";
 import styled from "styled-components";
 
-function PrivacyPolicy({ providers, csrfToken }) {
+function PrivacyPolicy() {
   const router = useRouter();
   const placeholder = router.query.location;
 

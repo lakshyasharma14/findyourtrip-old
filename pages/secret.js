@@ -6,6 +6,7 @@ export default function Secret() {
   const [session, loading] = useSession();
   const [content, setContent] = useState();
 
+  console.log(session);
   useEffect(() => {
     const fetchData = async () => {
       const res = await fetch("/api/secret");
