@@ -7,8 +7,12 @@ import { useMediaQuery } from "@react-hook/media-query";
 import { useRouter } from "next/router";
 import MobileNav from "./MobileNav";
 import Link from "next/dist/client/link";
+import { useSession } from "next-auth/client";
+import Image from "next/image";
+
 export default function Header({ placeholder }) {
   const router = useRouter();
+  const [session, loading] = useSession();
 
   const navRef = useRef(null);
   const headerRef = useRef(null);
@@ -40,6 +44,28 @@ export default function Header({ placeholder }) {
     setCheckInDate(new Date());
     setCheckOutDate(new Date());
     document.body.style.overflow = "initial";
+  };
+  const getUserIcon = () => {
+    if (session) {
+      return (
+        <Link href="/org">
+          <Image
+            src={session.user.image}
+            width={30}
+            height={30}
+            alt="loading"
+          />
+        </Link>
+      );
+    } else {
+      return (
+        <Link href="/auth/signin">
+          <div className="user">
+            <User className="userIcon" />
+          </div>
+        </Link>
+      );
+    }
   };
 
   const handleSubmit = (e) => {
@@ -249,17 +275,12 @@ l-155 -493 0 -240 0 -239 -110 0 -110 0 0 233 0 232 -164 518 -163 517 112 0
         )}
 
         <div className="profile">
-          <Link href="/signin">Become a host</Link>
+          <Link href="/auth/signin">Become a host</Link>
           <ThemeToggle icon />
           <a href="#" className="globe">
             <Globe />
           </a>
-          <Link href="/signin">
-            <div className="user">
-              <Menu className="menu" />
-              <User className="userIcon" />
-            </div>
-          </Link>
+          {getUserIcon()}
         </div>
       </div>
     </HeaderSection>
@@ -427,16 +448,13 @@ const HeaderSection = styled.header`
       margin-right: 1.5rem;
     }
     .userIcon {
-      background: #2e2e48;
       border-radius: 99px;
       height: 1.5rem;
       width: 1.5rem;
-      color: #fafafc;
     }
     .user {
-      background: #fafafc;
       border-radius: 99px;
-      padding: 0.25rem 0.25rem 0.25rem 0.5rem;
+      padding: 0.25rem 0.25rem 0.25rem 0.25rem;
     }
     .menu {
       color: #2e2e48;

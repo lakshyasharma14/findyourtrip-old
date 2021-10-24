@@ -5,14 +5,14 @@ import ResultCard from "./ResultCard";
 import { resultImages } from "../data";
 import { ArrowLeft, ArrowRight } from "react-feather";
 
-export default function SearchResults({ results }) {
+export default function ProfileTrips({ results }) {
   const router = useRouter();
 
   return (
     <ResultsDiv className="hero">
       <div className="inner">
         {/* <p className="details">details</p> */}
-        <h1>Trips: {router.query.location}</h1>
+        <h1>My Trips: {router.query.location}</h1>
         <div className="results">
           {results.map((item, index) => (
             <ResultCard
@@ -47,16 +47,6 @@ export default function SearchResults({ results }) {
 }
 
 const ResultsDiv = styled.section`
-  height: fit-content;
-  padding: 6rem var(--sidePadding);
-  z-index: 1;
-  position: relative;
-  border-radius: 1.5rem 1.5rem 0 0;
-  box-shadow: 0 -1rem 2rem -1rem #0003;
-  background: var(--light);
-  max-width: calc(var(--containerWidth) + 2 * var(--sidePadding));
-  margin: 0 auto;
-
   .inner {
     display: flex;
     flex-direction: column;

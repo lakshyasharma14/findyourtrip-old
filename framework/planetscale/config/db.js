@@ -26,14 +26,9 @@ const getConfig = () => {
 };
 
 export default class DBPool {
-  constructor() {
-    this.connectionPool = null;
-  }
+  static connectionPool = mysql.createPool(getConfig()).promise();
 
   static execute = async (query) => {
-    if (!this.connectionPool) {
-      this.connectionPool = mysql.createPool(getConfig()).promise();
-    }
     return this.connectionPool.query(query);
   };
 }

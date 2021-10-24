@@ -1,14 +1,23 @@
 import styled from "styled-components";
 import Link from "next/dist/client/link";
+import { useSession } from "next-auth/client";
 export default function Hosting() {
+  const [session, loading] = useSession();
+
   return (
     <HostingSection className="light">
       <span>
         <h2>Trip Organizer</h2>
         <p>Share your trips with the amazing FindYourTrip community.</p>
-        <Link href="/signin">
-          <a className="btn btn-light">Register Here</a>
-        </Link>
+        {session ? (
+          <Link href="/org">
+            <a className="btn btn-light">Register Here</a>
+          </Link>
+        ) : (
+          <Link href="/auth/signin">
+            <a className="btn btn-light">Register Here</a>
+          </Link>
+        )}
       </span>
     </HostingSection>
   );

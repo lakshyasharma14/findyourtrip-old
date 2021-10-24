@@ -27,6 +27,11 @@ export default NextAuth({
     // }),
   ],
   pages: {
-    signIn: "/signin",
+    signIn: "/auth/signin",
+  },
+  callbacks: {
+    async redirect({ url, baseUrl }) {
+      return "/org";
+    },
   },
 });
