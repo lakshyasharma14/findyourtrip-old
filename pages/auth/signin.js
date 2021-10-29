@@ -1,7 +1,7 @@
-import { AccountBox } from "../components/accountBox";
+import { AccountBox } from "../../components/accountBox";
 import styled from "styled-components";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
+import Header from "../../components/Header";
+import Footer from "../../components/Footer";
 import { useRouter } from "next/router";
 import { providers, signIn, getSession, csrfToken } from "next-auth/client";
 
