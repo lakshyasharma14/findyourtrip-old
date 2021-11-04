@@ -9,7 +9,7 @@ Live Version here [findyourtrip.in](https://findyourtrip.in)
 To connect to DB hosted via planetscale, for access to DB creating a new issue on the repo with you email for which you want access.
 * Install planetscale CLI tool from [https://github.com/planetscale/cli](here).
 * run: pscale auth login
-* run: pscale connect fyt
+* run: pscale connect fyt --org findyourtrip
 * This will start a proxy server on 127.0.0.1:3306 
 
 For details [https://docs.planetscale.com/tutorials/connect-any-application](here)
